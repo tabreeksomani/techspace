@@ -1,0 +1,47 @@
+
+<div style="padding-left: 4%;">
+    Select Role
+    <select [(ngModel)]="selectedRole" (change)="search()" style="margin-right: 9%;">
+      <option>All</option>
+    
+        <option *ngFor="let prof of roles" [ngValue] = "prof" onchange="search()">
+            {{ prof }}
+        </option>
+    </select>
+    Select Commitment:
+    <select [(ngModel)]="selectedCommit" (change)="search()">
+      <option>All</option>
+        <option *ngFor="let commit of commitments" [ngValue] = "commit" onchange="search()">
+            {{ commit }}
+        </option>
+    </select>
+    </div>
+    <table class="table" style="border-top-color: black; border-width: 2%;">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Role</th> 
+            <th scope="col">Commitment</th>
+            <th scope="col">Experience </th>
+            <th scope="col">Projects</th>
+            <th scope="col">Skills</th>
+          </tr>
+        </thead>
+       <tbody>
+           
+          <tr *ngFor="let list of listings" [value]="list">
+            
+            <td>{{list.id}}</td> 
+            <td>{{list.role}}</td>
+            <td>{{list.commitment}}</td>
+            <td>{{list.experience}}</td>
+            <td>{{list.projects}}</td>
+            <td>{{list.skills}}</td>
+            <td>
+              <a (click) = "send(list)" class = "btn btn-primary">Contact</a>
+            </td>
+    
+            </tr>
+    </tbody>
+      </table>
+      

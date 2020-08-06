@@ -1,0 +1,65 @@
+<div style="padding-left: 4%;">
+    Select Role
+    <select [(ngModel)]="selectedJob" (change)="search()" style="margin-right: 9%;">
+      <option>All</option>
+    
+        <option *ngFor="let job of opportunities" [ngValue] = "job" onchange="search()">
+            {{ job }}
+        </option>
+        </select>
+
+Select Commitment:
+<select [(ngModel)]="selectedCommit" (change)="search()">
+  <option>All</option>
+    <option *ngFor="let job of commitments" [ngValue] = "job" onchange="search()">
+        {{ job }}
+    </option>
+</select>
+</div>
+<table class="table" style="border-top-color: black; border-width: 2%;">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Role</th> 
+        <th scope="col">Company</th>
+        <th scope="col">Inclusion Meter </th>
+        <th scope="col">Commitment</th>
+      </tr>
+    </thead>
+   <tbody>
+    
+      <tr *ngFor="let list of listings" [value]="list">
+
+        <td>{{list.id}}</td> 
+        <td>{{list.role}}</td>
+        <td>{{list.company}}</td>
+        <td>{{list.level}}</td>
+        <td>{{list.commitment}}</td>
+        <td>
+          <a (click) = "send(list)" class = "btn btn-primary">Contact</a>
+        </td>
+
+<td>
+
+          <a href="#" (click) = "DeleteRecord(list.id)" class="btn btn-danger btn-xs">Mark as Hired</a>
+    </td>
+
+        </tr>
+
+        
+       
+      </tbody>
+
+  </table>
+  
+<!-- 
+  <td><input type="text" [(ngModel)] = "item.editcompany" class="form-control">
+  </td>
+<td><input type="text" [(ngModel)] = "item.editlevel" class="form-control">
+  </td>
+
+  <td><input type="text" [(ngModel)] = "item.editcommitment" class="form-control">
+  </td>
+  <td>      <a href="#" (click) = "UpdateRecord(item)" class="btn btn-primary btn-xs">Edit Job</a>
+    <a href="#" (click) = "item.isedit = false" class="btn btn-danger btn-xs">Mark as Hired</a>
+</td> -->

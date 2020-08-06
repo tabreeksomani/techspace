@@ -1,0 +1,35 @@
+
+  <div class = "container col-md-6" >
+    <div class= "form-group">
+      <input type="text" class = "form-control" [(ngModel)] = "candidaterole" placeholder="Enter intended Role">
+    </div>
+    <div class= "form-group">
+      <input type="text" class = "form-control" [(ngModel)] = "aboutme" placeholder="Enter About Me">
+    </div>
+    <div class= "form-group">
+      <input type="text" class = "form-control" [(ngModel)] = "experience" placeholder="Enter Experience">
+    </div>
+    <div class= "form-group">
+      <input type="text" class = "form-control" [(ngModel)] = "skills" placeholder="Enter Skills">
+    </div>
+    <div class= "form-group">
+      <input type="text" class = "form-control" [(ngModel)] = "projects" placeholder="Enter Projects">
+    </div>
+    <div class= "form-group">
+      <input type="text" class = "form-control" [(ngModel)] = "email" placeholder="Enter Email">
+    </div>
+      <div class="form-group">
+    <select [(ngModel)] = "candidatecommit">
+      <option value="undefined" disabled hidden>Time Commitment (hrs) per week</option>
+      <option value="5-10">5-10hrs</option>
+      <option value="10-15">10-15hrs</option>
+      <option value="15-25">15-25hrs</option>
+      <option value="25-35">25-35hrs</option>
+    </select>
+    </div>
+    <div class= "form-group">
+    <button class="btn btn-primary" (click) = "CreateRecord()" [disabled] = "!candidaterole || !aboutme || !candidatecommit || !experience || !skills || !projects || !email">Create Job</button>
+    </div>
+    <div class="form-group">
+    </div>
+</div>

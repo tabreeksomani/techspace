@@ -1,0 +1,26 @@
+<div class = "container col-md-6" >
+    <div class= "form-group">
+      <input type="text" class = "form-control" [(ngModel)] = "jobRole" placeholder="Enter Role">
+    </div>
+    <div class= "form-group">
+      <input type="text" class = "form-control" [(ngModel)] = "jobCompanyName" placeholder="Enter Company">
+    </div>
+    <div class= "form-group">
+      <input type="text" class = "form-control" [(ngModel)] = "jobemail" placeholder="Enter Email">
+    </div>
+      <div class="form-group">
+    <select [(ngModel)] = "jobCommit">
+      <option value="undefined" disabled hidden>Time Commitment (hrs) per week</option>
+      <option value="5-10">5-10hrs</option>
+      <option value="10-15">10-15hrs</option>
+      <option value="15-25">15-25hrs</option>
+      <option value="25-35">25-35hrs</option>
+    </select>
+    </div>
+    <div class= "form-group">
+    <button class="btn btn-primary" (click) = "CreateRecord()" [disabled] = "!jobRole || !jobCompanyName || !jobemail || !jobCommit">Create Job</button>
+    </div>
+    <div class="form-group">
+      <h4><b>{{message}}</b></h4>
+    </div>
+</div>
